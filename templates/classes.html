@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Classes & Schedule — Vyoma Yoga{% endblock %}
+
+{% block hero_content %}
+{% endblock %}
+
+{% block content %}
+
+<section class="page-title-block">
+  <p class="page-eyebrow">Find your practice</p>
+  <h1>Classes &amp; Schedule</h1>
+  <p class="page-subtitle">From gentle Hatha to energizing Vinyasa — in the studio or online, there's a class for every body.</p>
+</section>
+
+<!-- ===== CLASSES STRIP ===== -->
+<section class="classes" id="classes">
+  <h2>What we teach</h2>
+  <div class="classes-list">
+    <div class="class-item">
+      <h3>Hatha</h3>
+      <p>Slow, grounded postures held with attention. Best for beginners and anyone easing back into practice.</p>
+    </div>
+    <div class="class-item">
+      <h3>Qi Gong</h3>
+      <p>Breath-linked movement that builds heat and strength. For students comfortable with the basics.</p>
+    </div>
+    <div class="class-item">
+      <h3>Vyoma Wellness</h3>
+      <p>Supported, mostly-still poses held for minutes at a time. A quiet reset for a tired nervous system.</p>
+    </div>
+    <div class="class-item">
+      <h3>Core</h3>
+      <p>Deep, passive stretches that work the connective tissue. Meditative and slow by design.</p>
+    </div>
+    <di class="class-item">
+      <h3>Power</h3>
+      <p>Deep, passive stretches that work the connective tissue. Meditative and slow by design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCHEDULE (now includes Online Classes as a callout) ===== -->
+<section class="schedule" id="schedule">
+  <h2>Class Schedule</h2>
+  <table class="schedule-table">
+    <tr>
+      <th>Time</th>
+      {% for day in days %}
+        <th>{{ day }}</th>
+      {% endfor %}
+    </tr>
+    {% for slot in time_slots %}
+      <tr>
+        <td>{{ slot }}</td>
+        {% for day in days %}
+          <td>{{ grid.get(slot, {}).get(day, '') }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+
+  <p class="schedule-note">
+    Hatha Builds The Foundation. Power Builds Strength and Flow.
+    <br>
+    Core Builds Stability. Qi Gong Brings Balance. Vyoma Wellness Brings Everything Together
+  </p>
+
+  <!-- Online classes now live here as a callout, instead of a separate section -->
+  <div class="online-callout" id="online-classes">
+    <h3>Prefer online?</h3>
+    <p>We also offer flexible online group sessions, scheduled
+      around what works for you. Tell us what you're looking for and we'll confirm
+      a time and send you the link to join.</p>
+
+    <form action="{{ url_for('online_request') }}" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+
+      <select name="class_type" required>
+        <option value="" disabled selected>Session type</option>
+        <!--<option value="1-on-1">One-on-One</option>-->
+        <option value="group">Group Session</option>
+      </select>
+
+      <input type="text" name="preferred_time" placeholder="Preferred day/time (e.g. Tuesday evenings)" required>
+      <textarea name="message" placeholder="Anything else we should know? (optional)" rows="3"></textarea>
+
+      <button type="submit" class="btn-primary">Request a Session</button>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

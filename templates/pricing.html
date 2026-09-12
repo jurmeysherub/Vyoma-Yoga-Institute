@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Pricing — Vyoma Yoga{% endblock %}
+
+{% block hero_content %}
+{% endblock %}
+
+{% block content %}
+
+<section class="page-title-block">
+  <p class="page-eyebrow">Simple &amp; transparent</p>
+  <h1>Membership &amp; Pricing</h1>
+  <p class="page-subtitle">Drop in for a single class, or commit to a pass that fits your rhythm.</p>
+</section>
+
+<section class="pricing" id="pricing">
+  <h3 class="pricing-subtitle">Adult Fee Structure</h3>
+  <table class="pricing-table">
+    <tr><th>Option</th><th>Fee</th><th>Validity</th></tr>
+    {% for plan in adult_pricing %}
+      <tr>
+        <td>{{ plan.option }}</td>
+        <td>{{ plan.fee }}</td>
+        <td>{{ plan.validity }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <h3 class="pricing-subtitle">Kids Fee Structure</h3>
+  <table class="pricing-table">
+    <tr><th>Option</th><th>Fee</th></tr>
+    {% for plan in kids_pricing %}
+      <tr>
+        <td>{{ plan.option }}</td>
+        <td>{{ plan.fee }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</section>
+
+{% endblock %}

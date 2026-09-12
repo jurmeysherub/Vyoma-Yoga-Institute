@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Vyoma Yoga — Find your stillness{% endblock %}
+
+{% block hero_content %}
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-text-block">
+  <h1>A Space for Growth, Expansion &amp; Inner Balance.</h1>
+  <p class="hero-sub">Breath. Move. Balance.</p>
+  <h2>Welcome to Vyoma Yoga</h2>
+  <p>A Space to slow down, breathe deeply and reconnect with yourself.</p>
+  <p>At Vyoma Yoga, we believe yoga is more than movement. It is a practice of
+    creating space — in the breath and within the mind.</p>
+  <p>Come as you are. Move at your own pace. Find your balance.</p>
+  <a href="{{ url_for('classes') }}" class="btn-primary">See our classes</a>
+</section>
+
+<!-- ===== WHY VYOMA — full-width moss band ===== -->
+<div class="full-bleed band-moss">
+  <div class="full-bleed-inner">
+    <h2>Why Vyoma Yoga Institute</h2>
+    <ul class="why-list">
+      <li>Personalized small-group learning for deeper guidance and attention</li>
+      <li>Authentic yoga rooted in Bhutan's calm and mindful environment</li>
+      <li>Practical, experience-based teaching approach — not just theory</li>
+      <li>Peaceful, distraction-free setting for deeper practice</li>
+      <li>Guided by a certified and experienced yoga instructor</li>
+    </ul>
+    <br>
+    <a href="{{ url_for('about') }}" class="btn-primary">Learn more about us</a>
+  </div>
+</div>
+
+<!-- ===== GET TO KNOW US — light clay band ===== -->
+<div class="full-bleed band-clay-light">
+  <div class="full-bleed-inner">
+    <h2>Get to Know Us</h2>
+    <div class="teaser-grid">
+      <a href="{{ url_for('about') }}#vision" class="teaser-card">
+        <h3>Our Vision</h3>
+        <p>Bringing authentic yoga into modern living, wherever life happens.</p>
+      </a>
+      <a href="{{ url_for('about') }}#journey" class="teaser-card">
+        <h3>Our Journey</h3>
+        <p>From a personal practice to a growing institute, shaped by real experience.</p>
+      </a>
+      <a href="{{ url_for('about') }}#philosophy" class="teaser-card">
+        <h3>Teaching Philosophy</h3>
+        <p>Awareness, breath, and functional movement over performance.</p>
+      </a>
+      <a href="{{ url_for('about') }}#approach" class="teaser-card">
+        <h3>Our Approach</h3>
+        <p>Simple, practical, and adaptable to every student's level.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== QUICK LINKS — plain cream background ===== -->
+<section class="home-teasers">
+  <div class="teaser-grid">
+    <a href="{{ url_for('classes') }}" class="teaser-card">
+      <h3>Classes &amp; Schedule</h3>
+      <p>Hatha, Vinyasa, Yin, Restorative, and online sessions — find what fits.</p>
+    </a>
+    <a href="{{ url_for('pricing') }}" class="teaser-card">
+      <h3>Pricing</h3>
+      <p>Drop-in, class passes, and unlimited memberships for adults and kids.</p>
+    </a>
+    <a href="{{ url_for('about') }}" class="teaser-card">
+      <h3>Our Studio &amp; Instructors</h3>
+      <p>Meet the people behind Vyoma and see the space itself.</p>
+    </a>
+    <a href="{{ url_for('ttc') }}" class="teaser-card">
+      <h3>Teacher Training</h3>
+      <p>Deepen your practice with our 200hr certification program.</p>
+    </a>
+  </div>
+</section>
+
+<!-- ===== MEET THE INSTRUCTORS — full-bleed photo band, flows into footer ===== -->
+<div class="full-bleed band-instructors">
+  <div class="full-bleed-inner">
+    <h2>Meet the Instructors</h2>
+    <p>Certified, experienced, and genuinely invested in your practice — get to know
+      the people teaching every class.</p>
+    <a href="{{ url_for('about') }}#owners" class="btn-primary">Meet the team</a>
+  </div>
+</div>
+
+{% endblock %}

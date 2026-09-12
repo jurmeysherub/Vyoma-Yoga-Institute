@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}About Us — Vyoma Yoga{% endblock %}
+
+{% block hero_content %}
+{% endblock %}
+
+{% block content %}
+
+<section class="page-title-block">
+  <p class="page-eyebrow">Who we are</p>
+  <h1>About Vyoma Yoga</h1>
+  <p class="page-subtitle">Bringing authentic yoga into modern living — bridging traditional wisdom with practical, accessible wellness.</p>
+</section>
+
+<!-- ===== VISION ===== -->
+<section class="about" id="about" id="vision">
+  <div class="about-image">
+    <img src="{{ url_for('static', filename='images/placeholder3.jpeg') }}" alt="Vyoma Yoga studio">
+  </div>
+  <div class="about-text">
+    <h2>Our Vision</h2>
+    <p>Vyoma Yoga was founded with a vision to bring authentic yoga into modern living
+      environments, bridging traditional yogic wisdom with practical, accessible wellness.</p>
+    <p>The institute focuses on creating mindful and transformative yoga experiences for
+      individuals, corporates, and luxury hospitality spaces. Our approach combines
+      traditional yogic principles with modern lifestyle needs, helping students develop
+      balance, awareness, and sustainable practice.</p>
+  </div>
+</section>
+
+<!-- ===== JOURNEY ===== -->
+<section class="about about-reverse" id="journey">
+  <div class="about-image">
+    <img src="{{ url_for('static', filename='images/placeholder4.jpeg') }}" alt="Vyoma Yoga journey">
+  </div>
+  <div class="about-text">
+    <h2>Our Journey</h2>
+    <p>My journey into yoga began as a personal practice for balance and well-being, and
+      gradually evolved into a deeper path of teaching and sharing.</p>
+    <p>Over time, exposure to corporate environments, international training, and global
+      clients helped shape a broader vision where yoga is not limited to studios, but
+      integrated into workplaces, homes, and lifestyle spaces. This vision led to the
+      creation of Vyoma Yoga Institute — a space where authentic yoga meets modern living.</p>
+  </div>
+</section>
+
+<!-- ===== TEACHING PHILOSOPHY ===== -->
+<section class="about" id="philosophy">
+  <div class="about-image">
+    <img src="{{ url_for('static', filename='images/placeholder7.jpeg') }}" alt="Vyoma Yoga teaching philosophy">
+  </div>
+  <div class="about-text">
+    <h2>Teaching Philosophy</h2>
+    <p>My teaching is centered around awareness, breath, and functional movement rather
+      than performance.</p>
+    <p>I believe yoga is not about perfection or flexibility, but about building
+      consistency, inner balance, and mindful living. Each session is adapted to the
+      needs of the student, ensuring a safe, supportive, and practical learning
+      environment.</p>
+  </div>
+</section>
+
+<!-- ===== OUR APPROACH ===== -->
+<section class="about about-reverse" id="approach">
+  <div class="about-image">
+    <img src="{{ url_for('static', filename='images/placeholder5.jpeg') }}" alt="Vyoma Yoga approach">
+  </div>
+  <div class="about-text">
+    <h2>Our Approach</h2>
+    <p>My teaching combines traditional and modern yoga in a way that is simple,
+      practical, and easy to apply in daily life. Each session is designed to meet
+      students where they are, whether they are beginners, corporate professionals,
+      or more experienced practitioners.</p>
+    <p>The focus is always on breath, awareness, and mindful movement, creating a
+      balanced practice that supports both body and mind. Classes are structured
+      but flexible, allowing space for individual needs while maintaining clarity
+      and flow.</p>
+  </div>
+</section>
+
+<!-- ===== OWNERS / TEAM ===== -->
+<section class="owners" id="owners">
+  <div class="owners-block">
+    <h2>Meet your instructors</h2>
+    <div class="owners-grid">
+      <div class="owner-card">
+        <img src="{{ url_for('static', filename='images/owner1.jpeg') }}" alt="Photo of Sonam Nidup">
+        <h3>Sonam Nidup</h3>
+        <p class="owner-role">Founder &amp; Lead Instructor</p>
+        <p>A certified yoga teacher with international training and teaching experience
+          across multiple yoga styles and environments. She has completed 300 hours of
+          Multi-Style Yoga Teacher Training and 50 hours of Zen Yoga Teacher Training
+          from World Yoga School, Bali, and 200 hours of Yoga Teacher Training from
+          SVYASA, one of India's well-known yoga institutions. She also holds a
+          Children's Yoga certification from Udemy and has developed her own
+          structured approach to Chair Yoga for workplace wellness.</p>
+        <p>She has teaching experience in both studio and online settings, working
+          with clients across different countries and levels of practice. Alongside
+          yoga, she brings experience in corporate operations and customer service,
+          which supports her practical approach to corporate wellness and structured
+          group sessions.</p>
+      </div>
+      <div class="owner-card">
+        <img src="{{ url_for('static', filename='images/owner2.jpeg') }}" alt="Photo of Pema Dechen">
+        <h3>Pema Dechen</h3>
+        <p class="owner-role">Co-Founder &amp; Instructor</p>
+        <p>[Still needed: a bio for Pema, matching the personal, specific tone of
+          Sonam's above — background, what drew her to yoga, and what she hopes
+          students take from a class.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Feedback — Vyoma Yoga{% endblock %}
+
+{% block hero_content %}
+{% endblock %}
+
+{% block content %}
+
+<section class="page-title-block">
+  <p class="page-eyebrow">We're listening</p>
+  <h1>Share Your Feedback</h1>
+  <p class="page-subtitle">Whether it's about a class, the space, or anything else — we'd love to hear from you.</p>
+</section>
+
+<section class="feedback">
+  <form action="{{ url_for('feedback') }}" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your name (optional)">
+
+    <select name="rating" required>
+      <option value="" disabled selected>How was your experience?</option>
+      <option value="5">Excellent</option>
+      <option value="4">Good</option>
+      <option value="3">Okay</option>
+      <option value="2">Not great</option>
+      <option value="1">Poor</option>
+    </select>
+
+    <textarea name="comments" placeholder="Tell us more..." rows="5" required></textarea>
+
+    <button type="submit" class="btn-primary">Send Feedback</button>
+  </form>
+</section>
+
+{% endblock %}

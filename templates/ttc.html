@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}200hr Yoga Teacher Training — Vyoma Yoga{% endblock %}
+
+
+
+{% block content %}
+
+<section class="page-title-block">
+  <p class="page-eyebrow">Deepen your practice</p>
+  <h1>200hr Yoga Teacher Training</h1>
+  <p class="page-subtitle">Become a certified instructor, guided by Vyoma's own teachers.</p>
+</section>
+
+<section class="ttc-overview">
+  <h2>About the Program</h2>
+  <p>[Placeholder: A few sentences on what makes this training unique — the
+    philosophy, teaching style, and who this program is designed for.]</p>
+</section>
+
+<section class="ttc-details">
+  <h2>Program Details</h2>
+  <div class="ttc-grid">
+    <div class="ttc-item">
+      <h3>Duration</h3>
+      <p>[Placeholder: e.g. 4 weeks, full-time]</p>
+    </div>
+    <div class="ttc-item">
+      <h3>Certification</h3>
+      <p>[Placeholder: e.g. Yoga Alliance 200hr RYT]</p>
+    </div>
+    <div class="ttc-item">
+      <h3>Cost</h3>
+      <p>[Placeholder: fee amount]</p>
+    </div>
+    <div class="ttc-item">
+      <h3>Prerequisites</h3>
+      <p>[Placeholder: e.g. minimum 6 months personal practice]</p>
+    </div>
+  </div>
+</section>
+
+<section class="ttc-curriculum">
+  <h2>Curriculum</h2>
+  <p>[Placeholder: list out modules — e.g. Asana, Anatomy, Philosophy,
+    Teaching Methodology, Practicum]</p>
+</section>
+
+<section class="ttc-apply" id="apply">
+  <h2>Apply</h2>
+  <p>Interested in joining the next cohort? Reach out and we'll send you the full syllabus and application details.</p>
+  <a href="{{ url_for('home') }}#contact" class="btn-primary">Get in Touch</a>
+</section>
+
+{% endblock %}

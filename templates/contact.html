@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Contact & Location — Vyoma Yoga{% endblock %}
+
+{% block hero_content %}
+{% endblock %}
+
+{% block content %}
+
+<section class="page-title-block">
+  <p class="page-eyebrow">Come Visit Us</p>
+  <h1>Contact &amp; Find Us At</h1>
+  <p class="page-subtitle">Send a message, chat on WhatsApp, or come see the space for yourself.</p>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Send a message</h2>
+  <p>We'll get back to you within a day.</p>
+  <form id="contactForm" class="contact-form" action="{{ url_for('contact') }}" method="POST">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <textarea name="message" placeholder="What would you like to know?" rows="4" required></textarea>
+    <button type="submit" class="btn-primary">Send message</button>
+  </form>
+
+  <a href="https://wa.me/97517401475" target="_blank" class="whatsapp-link">
+    <i class="fa-brands fa-whatsapp"></i> Chat with us on WhatsApp
+  </a>
+</section>
+
+<!-- ===== LOCATION / SPACE ===== -->
+<section class="location" id="location">
+  <h2>Our space</h2>
+  <p class="location-intro">Tucked into the Thimphu valley, our studio is a quiet
+    workspace built for practice — natural light, warm floors, and a view worth
+    breathing for.</p>
+
+  <div class="location-gallery">
+    <img src="{{ url_for('static', filename='images/office1.png') }}" alt="Vyoma Yoga workspace">
+    <img src="{{ url_for('static', filename='images/office2.png') }}" alt="Vyoma Yoga studio interior">
+    <img src="{{ url_for('static', filename='images/office3.png') }}" alt="Vyoma Yoga entrance">
+  </div>
+
+  <h3 class="location-subtitle">Find us here</h3>
+  <div class="map-embed">
+    <iframe
+      src="https://www.google.com/maps?q=Vyoma+Yoga,27.4776045,89.6368837&output=embed"
+      width="100%" height="400" style="border:0;"
+      allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+{% endblock %}
