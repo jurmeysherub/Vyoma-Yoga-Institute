@@ -28,7 +28,7 @@
   </a>
 </section>
 
-<!-- ===== LOCATION / SPACE ===== -->
+<!-- ===== OUR SPACE (photos + video, own section) ===== -->
 <section class="location" id="location">
   <h2>Our space</h2>
   <p class="location-intro">Tucked into the Thimphu valley, our studio is a quiet
@@ -36,11 +36,26 @@
     breathing for.</p>
 
   <div class="location-gallery">
-    <img src="{{ url_for('static', filename='images/office1.png') }}" alt="Vyoma Yoga workspace">
-    <img src="{{ url_for('static', filename='images/office2.png') }}" alt="Vyoma Yoga studio interior">
-    <img src="{{ url_for('static', filename='images/office3.png') }}" alt="Vyoma Yoga entrance">
+  <img src="{{ url_for('static', filename='images/office2.jpeg') }}" alt="Vyoma Yoga studio exterior" class="gallery-tile gallery-hero">
+  <div class="gallery-side">
+    <img src="{{ url_for('static', filename='images/office1.jpeg') }}" alt="Vyoma Yoga studio entrance" class="gallery-tile">
+    <div class="gallery-tile gallery-video-thumb" id="videoThumb">
+      <img src="{{ url_for('static', filename='images/office1.jpeg') }}" alt="Play a video tour of the studio">
+      <div class="play-icon"><i class="fa-solid fa-play"></i></div>
+    </div>
   </div>
+</div>
 
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-close" id="videoModalClose">&times;</div>
+  <video id="modalVideo" controls playsinline poster="{{ url_for('static', filename='images/office1.jpeg') }}">
+    <source src="{{ url_for('static', filename='images/office.mp4') }}" type="video/mp4">
+  </video>
+</div>
+</section>
+
+<!-- ===== FIND US (map, own separate section) ===== -->
+<section class="find-us" id="find-us">
   <h3 class="location-subtitle">Find us here</h3>
   <div class="map-embed">
     <iframe

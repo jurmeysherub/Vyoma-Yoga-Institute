@@ -8,14 +8,30 @@
 {% block content %}
 
 <section class="page-title-block">
-  <p class="page-eyebrow">Community &amp; gatherings</p>
+  <p class="page-eyebrow">Beyond the studio</p>
   <h1>Events</h1>
-  <p class="page-subtitle">Workshops, retreats, and special sessions throughout the year.</p>
+  <p class="page-subtitle">Retreats, workshops, and yoga trips beyond the regular schedule.</p>
 </section>
 
 <section class="events-list">
-  <p>[Placeholder: List upcoming workshops, retreats, or special events here once
-    scheduled — date, title, short description, and a way to register or ask about it.]</p>
+  {% if events %}
+    {% for event in events %}
+      <div class="event-card">
+        <h3>{{ event.get('event name', '') }}</h3>
+        <p class="event-date">{{ event.get('date', '') }}</p>
+        <p>{{ event.get('description', '') }}</p>
+        {% if event.get('location') %}
+          <p class="event-location"><i class="fa-solid fa-location-dot"></i> {{ event.get('location') }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="events-empty">
+      <i class="fa-solid fa-calendar-days"></i>
+      <h2>No events scheduled right now</h2>
+      <p>Check back soon, or follow us on <a href="https://www.instagram.com/yoga_vyoma" target="_blank">Instagram</a> for announcements.</p>
+    </div>
+  {% endif %}
 </section>
 
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Classes & Schedule — Vyoma Yoga{% endblock %}
+{% block title %}Classes — Vyoma Yoga{% endblock %}
 
 {% block hero_content %}
 {% endblock %}
@@ -9,85 +9,102 @@
 
 <section class="page-title-block">
   <p class="page-eyebrow">Find your practice</p>
-  <h1>Classes &amp; Schedule</h1>
-  <p class="page-subtitle">From gentle Hatha to energizing Vinyasa — in the studio or online, there's a class for every body.</p>
+  <h1>Our Classes</h1>
+  <p class="page-subtitle">From gentle Hatha to energizing Power — in the studio or online, there's a class for every body.</p>
 </section>
 
-<!-- ===== CLASSES STRIP ===== -->
-<section class="classes" id="classes">
-  <h2>What we teach</h2>
-  <div class="classes-list">
-    <div class="class-item">
-      <h3>Hatha</h3>
-      <p>Slow, grounded postures held with attention. Best for beginners and anyone easing back into practice.</p>
-    </div>
-    <div class="class-item">
-      <h3>Qi Gong</h3>
-      <p>Breath-linked movement that builds heat and strength. For students comfortable with the basics.</p>
-    </div>
-    <div class="class-item">
-      <h3>Vyoma Wellness</h3>
-      <p>Supported, mostly-still poses held for minutes at a time. A quiet reset for a tired nervous system.</p>
-    </div>
-    <div class="class-item">
-      <h3>Core</h3>
-      <p>Deep, passive stretches that work the connective tissue. Meditative and slow by design.</p>
-    </div>
-    <di class="class-item">
-      <h3>Power</h3>
-      <p>Deep, passive stretches that work the connective tissue. Meditative and slow by design.</p>
-    </div>
+<section class="about" id="hatha">
+  <div class="about-image about-image-placeholder">
+    <i class="fa-solid fa-person"></i>
+    <span>Hatha photo coming soon</span>
+  </div>
+  <div class="about-text">
+    <h2>Hatha</h2>
+    <p>Slow, grounded postures held with attention. Best for beginners and anyone easing back into practice.</p>
+    <p>60 minutes. Poses are held at a deliberate pace, giving you time to settle into alignment and breath before moving to the next. No previous experience needed — modifications are offered throughout.</p>
   </div>
 </section>
 
-<!-- ===== SCHEDULE (now includes Online Classes as a callout) ===== -->
-<section class="schedule" id="schedule">
-  <h2>Class Schedule</h2>
-  <table class="schedule-table">
-    <tr>
-      <th>Time</th>
-      {% for day in days %}
-        <th>{{ day }}</th>
-      {% endfor %}
-    </tr>
-    {% for slot in time_slots %}
-      <tr>
-        <td>{{ slot }}</td>
-        {% for day in days %}
-          <td>{{ grid.get(slot, {}).get(day, '') }}</td>
-        {% endfor %}
-      </tr>
-    {% endfor %}
-  </table>
+<section class="about about-reverse" id="qi-gong">
+  <div class="about-image about-image-placeholder">
+    <i class="fa-solid fa-wind"></i>
+    <span>Qi Gong photo coming soon</span>
+  </div>
+  <div class="about-text">
+    <h2>Qi Gong</h2>
+    <p>Breath-linked movement that builds heat and strength. For students comfortable with the basics.</p>
+    <p>60 minutes. Continuous, flowing movement paired with breath, drawing on principles distinct from seated yoga practice. A gentler entry point into movement-based energy work.</p>
+  </div>
+</section>
 
-  <p class="schedule-note">
-    Hatha Builds The Foundation. Power Builds Strength and Flow.
-    <br>
-    Core Builds Stability. Qi Gong Brings Balance. Vyoma Wellness Brings Everything Together
-  </p>
+<section class="about" id="core">
+  <div class="about-image about-image-placeholder">
+    <i class="fa-solid fa-circle-dot"></i>
+    <span>Core photo coming soon</span>
+  </div>
+  <div class="about-text">
+    <h2>Core</h2>
+    <p>Deep, passive stretches that work the connective tissue. Meditative and slow by design.</p>
+    <p>60 minutes. Poses are held far longer than in a typical flow class, targeting the deeper connective tissue rather than the muscles. Best suited to those wanting a slower, more internal practice.</p>
+  </div>
+</section>
 
-  <!-- Online classes now live here as a callout, instead of a separate section -->
-  <div class="online-callout" id="online-classes">
-    <h3>Prefer online?</h3>
-    <p>We also offer flexible online group sessions, scheduled
-      around what works for you. Tell us what you're looking for and we'll confirm
-      a time and send you the link to join.</p>
+<section class="about about-reverse" id="power">
+  <div class="about-image about-image-placeholder">
+    <i class="fa-solid fa-fire"></i>
+    <span>Power photo coming soon</span>
+  </div>
+  <div class="about-text">
+    <h2>Power</h2>
+    <p>A fast-paced, dynamic flow — the opposite pace of Hatha. Postures link continuously to the breath rather than being held individually, closer in feel to a cardio workout than a slow, meditative practice.</p>
+    <p>60 minutes. Best for students already comfortable with basic poses who want to build strength, stamina, and heat.</p>
+  </div>
+</section>
 
-    <form action="{{ url_for('online_request') }}" method="POST" class="contact-form">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="email" name="email" placeholder="Your email" required>
+<section class="about" id="kids-yoga">
+  <div class="about-image about-image-placeholder">
+    <i class="fa-solid fa-child-reaching"></i>
+    <span>Kids Yoga photo coming soon</span>
+  </div>
+  <div class="about-text">
+    <h2>Kids Yoga</h2>
+    <p>Playful, story-driven movement — poses introduced through games, animal names, and simple breathing exercises rather than formal instruction.</p>
+    <p>60 minutes. Designed for children roughly 5–10 years old. Builds focus, coordination, and emotional regulation in a lighthearted, non-competitive setting.</p>
+  </div>
+</section>
 
-      <select name="class_type" required>
-        <option value="" disabled selected>Session type</option>
-        <!--<option value="1-on-1">One-on-One</option>-->
-        <option value="group">Group Session</option>
-      </select>
+<section class="about about-reverse" id="meditation">
+  <div class="about-image about-image-placeholder">
+    <i class="fa-solid fa-om"></i>
+    <span>Meditation photo coming soon</span>
+  </div>
+  <div class="about-text">
+    <h2>Meditation</h2>
+    <p>A guided, seated practice — no prior experience or ability to "clear your mind" required. Expect gentle prompts around breath awareness, body scanning, or simple visualization.</p>
+    <p>[TODO: confirm actual session length — not yet on the fixed weekly schedule, may run as a standalone or workshop session.]</p>
+  </div>
+</section>
 
-      <input type="text" name="preferred_time" placeholder="Preferred day/time (e.g. Tuesday evenings)" required>
-      <textarea name="message" placeholder="Anything else we should know? (optional)" rows="3"></textarea>
+<section class="about" id="sound-healing">
+  <div class="about-image">
+    <img src="{{ url_for('static', filename='images/soundhealing.jpeg') }}" alt="Sound Healing session at Vyoma">
+  </div>
+  <div class="about-text">
+    <h2>Sound Healing</h2>
+    <p>A fully passive, lie-down experience using instruments like Tibetan singing bowls, gongs, and chimes. There's nothing to do but rest and listen — no meditation technique or breathing pattern required.</p>
+    <p>[TODO: confirm actual session length and instruments used — not yet on the fixed weekly schedule.]</p>
+  </div>
+</section>
 
-      <button type="submit" class="btn-primary">Request a Session</button>
-    </form>
+<section class="about about-reverse" id="pranayama">
+  <div class="about-image about-image-placeholder">
+    <i class="fa-solid fa-lungs"></i>
+    <span>Pranayama photo coming soon</span>
+  </div>
+  <div class="about-text">
+    <h2>Pranayama (Breathwork)</h2>
+    <p>Focused breathing techniques — such as alternate nostril breathing — used to calm the nervous system and prepare the mind for meditation. Seated and low-impact, suitable for most fitness levels.</p>
+    <p>[TODO: confirm actual session length — not yet on the fixed weekly schedule.]</p>
   </div>
 </section>
 

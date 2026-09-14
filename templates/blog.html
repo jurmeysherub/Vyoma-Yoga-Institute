@@ -8,43 +8,40 @@
 {% block content %}
 
 <section class="page-title-block">
-  <p class="page-eyebrow">Practice &amp; inspiration</p>
+  <p class="page-eyebrow">Follow along</p>
   <h1>Blog</h1>
-  <p class="page-subtitle">Short videos, tips, and moments from the studio — follow along here or on social.</p>
+  <p class="page-subtitle">Moments from the studio — follow us on Instagram and TikTok for more.</p>
 </section>
 
-<section class="blog-grid-section">
-  <div class="blog-grid">
-
-    <div class="blog-card">
-      <div class="blog-card-placeholder">
-        <i class="fa-brands fa-tiktok"></i>
-      </div>
-      <p class="blog-card-caption">[Placeholder: TikTok video coming soon]</p>
+<section class="blog-grid">
+  {% if posts %}
+    {% for post in posts %}
+      {% set platform = post.get('platform', '').strip().lower() %}
+      {% if platform == 'instagram' %}
+        <a href="{{ post.get('post url') }}" target="_blank" rel="noopener" class="blog-post-card blog-post-instagram">
+          <div class="blog-post-icon"><i class="fa-brands fa-instagram"></i></div>
+          {% if post.get('caption') %}
+            <p class="blog-post-caption">{{ post.get('caption') }}</p>
+          {% endif %}
+          <span class="blog-post-cta">Watch on Instagram <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        </a>
+      {% elif platform == 'tiktok' %}
+        <a href="{{ post.get('post url') }}" target="_blank" rel="noopener" class="blog-post-card blog-post-tiktok">
+          <div class="blog-post-icon"><i class="fa-brands fa-tiktok"></i></div>
+          {% if post.get('caption') %}
+            <p class="blog-post-caption">{{ post.get('caption') }}</p>
+          {% endif %}
+          <span class="blog-post-cta">Watch on TikTok <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        </a>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <div class="events-empty">
+      <i class="fa-solid fa-photo-film"></i>
+      <h2>No posts yet</h2>
+      <p>Check back soon, or follow us on <a href="https://www.instagram.com/yoga_vyoma" target="_blank">Instagram</a> and <a href="https://www.tiktok.com/@vyoma_yoga" target="_blank">TikTok</a> directly.</p>
     </div>
-
-    <div class="blog-card">
-      <div class="blog-card-placeholder">
-        <i class="fa-brands fa-instagram"></i>
-      </div>
-      <p class="blog-card-caption">[Placeholder: Instagram reel coming soon]</p>
-    </div>
-
-    <div class="blog-card">
-      <div class="blog-card-placeholder">
-        <i class="fa-brands fa-tiktok"></i>
-      </div>
-      <p class="blog-card-caption">[Placeholder: TikTok video coming soon]</p>
-    </div>
-
-    <div class="blog-card">
-      <div class="blog-card-placeholder">
-        <i class="fa-brands fa-instagram"></i>
-      </div>
-      <p class="blog-card-caption">[Placeholder: Instagram reel coming soon]</p>
-    </div>
-
-  </div>
+  {% endif %}
 </section>
 
 {% endblock %}

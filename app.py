@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
@@ -8,17 +11,42 @@ db = SQLAlchemy(app)
 
 import csv
 import io
+import os
+import smtplib
+from email.mime.text import MIMEText
 import requests
 
+# ===== EMAIL NOTIFICATION SETTINGS =====
+SENDER_EMAIL = os.environ.get('SENDER_EMAIL')
+SENDER_APP_PASSWORD = os.environ.get('SENDER_APP_PASSWORD')
+RECEIVER_EMAIL = 'sonam@vyomayogainstitute.com'
+
+
+def send_notification_email(subject, body):
+    msg = MIMEText(body)
+    msg['Subject'] = subject
+    msg['From'] = SENDER_EMAIL
+    msg['To'] = RECEIVER_EMAIL
+
+    try:
+        with smtplib.SMTP('smtp.gmail.com', 587) as server:
+            server.starttls()
+            server.login(SENDER_EMAIL, SENDER_APP_PASSWORD)
+            server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, msg.as_string())
+    except Exception as e:
+        print(f"Failed to send notification email: {e}")
+
+        
 SCHEDULE_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRCr9sjgkC1JT5NqeVodceumml4g9Zr9zfQrHfnqVvW-4DIwlKcDFW18wzaWWc30iFDNKlyPv9XGERA/pub?gid=0&single=true&output=csv"
 PRICING_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRCr9sjgkC1JT5NqeVodceumml4g9Zr9zfQrHfnqVvW-4DIwlKcDFW18wzaWWc30iFDNKlyPv9XGERA/pub?gid=493372854&single=true&output=csv"
+EVENTS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRCr9sjgkC1JT5NqeVodceumml4g9Zr9zfQrHfnqVvW-4DIwlKcDFW18wzaWWc30iFDNKlyPv9XGERA/pub?gid=1413253241&single=true&output=csv"
+BLOG_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRCr9sjgkC1JT5NqeVodceumml4g9Zr9zfQrHfnqVvW-4DIwlKcDFW18wzaWWc30iFDNKlyPv9XGERA/pub?gid=1722890409&single=true&output=csv"
+
 
 def fetch_csv_rows(url):
     response = requests.get(url, timeout=5)
     response.raise_for_status()
     reader = csv.DictReader(io.StringIO(response.text))
-    # normalize keys to lowercase and strip extra whitespace, so
-    # small typos in the sheet's spacing don't break anything
     return [{k.strip().lower(): v.strip() for k, v in row.items()} for row in reader]
 
 
@@ -64,9 +92,15 @@ def home():
     return render_template('index.html', hero_class='')
 
 
-# ===== CLASSES (class types + schedule + online request) =====
+# ===== CLASSES (class types — detailed info) =====
 @app.route('/classes')
 def classes():
+    return render_template('classes.html', hero_class='hero-banner-short hero-banner-classes')
+
+
+# ===== SCHEDULE (timetable + short blurbs + online request) =====
+@app.route('/schedule')
+def schedule():
     try:
         schedule_rows = fetch_csv_rows(SCHEDULE_CSV_URL)
     except Exception:
@@ -84,8 +118,8 @@ def classes():
 
     days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-    return render_template('classes.html', grid=grid, days=days, time_slots=time_slots,
-                            hero_class='hero-banner-short hero-banner-classes')
+    return render_template('schedule.html', grid=grid, days=days, time_slots=time_slots,
+                            hero_class='hero-banner-short hero-banner-schedule')
 
 # ===== PRICING =====
 @app.route('/pricing')
@@ -108,8 +142,6 @@ def about():
     return render_template('about.html', hero_class='hero-banner-short hero-banner-about')
 
 
-
-
 # ===== CONTACT (form + map) =====
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -121,6 +153,11 @@ def contact():
         new_message = ContactMessage(name=name, email=email, message=message)
         db.session.add(new_message)
         db.session.commit()
+
+        send_notification_email(
+        subject=f"New website message from {name}",
+        body=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+        )
 
         return redirect(url_for('contact'))
 
@@ -137,6 +174,11 @@ def feedback():
         db.session.add(new_feedback)
         db.session.commit()
 
+        send_notification_email(
+            subject=f"New feedback submitted ({rating}/5 stars)",
+            body=f"Name: {name or 'Anonymous'}\nRating: {rating}/5\n\nComments:\n{comments}"
+        )
+
         return redirect(url_for('feedback'))
 
     return render_template('feedback.html', hero_class='hero-banner-short hero-banner-page')
@@ -148,28 +190,34 @@ def ttc():
     return render_template('ttc.html', hero_class='hero-banner-short hero-banner-page')
 
 
-# Add these three routes to app.py, alongside your existing ones
-# (placeholder pages for now — real content comes later)
-
+# ===== EVENTS =====
 @app.route('/events')
 def events():
-    return render_template('events.html', hero_class='hero-banner-short hero-banner-page')
+    try:
+        events_rows = fetch_csv_rows(EVENTS_CSV_URL)
+    except Exception:
+        events_rows = []
 
+    return render_template('events.html', events=events_rows,
+                            hero_class='hero-banner-short hero-banner-page')
 
-@app.route('/coaching')
-def coaching():
-    return render_template('coaching.html', hero_class='hero-banner-short hero-banner-page')
+# ===== BLOG (Instagram/TikTok embeds, self-managed via Google Sheet) =====
+@app.route('/blog')
+def blog():
+    try:
+        blog_rows = fetch_csv_rows(BLOG_CSV_URL)
+    except Exception:
+        blog_rows = []
 
+    return render_template('blog.html', posts=blog_rows,
+                            hero_class='hero-banner-short hero-banner-page')
 
 @app.route('/faq')
 def faq():
     return render_template('faq.html', hero_class='hero-banner-short hero-banner-page')
 
-@app.route('/blog')
-def blog():
-    return render_template('blog.html', hero_class='hero-banner-short hero-banner-page')
 
-# ===== ONLINE CLASS REQUEST (form lives on /classes now) =====
+# ===== ONLINE CLASS REQUEST (form lives on /schedule now) =====
 @app.route('/online-request', methods=['POST'])
 def online_request():
     name = request.form['name']
@@ -185,8 +233,12 @@ def online_request():
     db.session.add(new_request)
     db.session.commit()
 
-    return redirect(url_for('classes'))
+    send_notification_email(
+        subject=f"New online class request from {name}",
+        body=f"Name: {name}\nEmail: {email}\nClass type: {class_type}\nPreferred time: {preferred_time}\n\nMessage:\n{message}"
+    )
 
+    return redirect(url_for('schedule'))
 
 if __name__ == '__main__':
     with app.app_context():

@@ -15,16 +15,34 @@
 
 <section class="faq-list">
   <div class="faq-item">
-    <h3>[Placeholder question, e.g. "What should I bring to class?"]</h3>
-    <p>[Placeholder answer]</p>
+    <button class="faq-question" aria-expanded="false">
+      <span>What should I bring to class?</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <div class="faq-answer">
+      <p>Come in comfortable, breathable clothing that allows you to move freely. Bring a yoga mat and a water bottle, along with a small towel if you tend to sweat. If you have your own yoga props, such as blocks or a strap, you're welcome to bring them, but they are not essential for most classes. Most importantly, come with an open mind and a willingness to practice.</p>
+    </div>
   </div>
+
   <div class="faq-item">
-    <h3>[Placeholder question, e.g. "Do I need to book in advance?"]</h3>
-    <p>[Placeholder answer]</p>
+    <button class="faq-question" aria-expanded="false">
+      <span>Do I need to book in advance?</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <div class="faq-answer">
+      <p>We recommend booking your class in advance to secure your spot, especially for popular classes. If space is available, walk-ins may also be welcome. Please check the <a href="{{ url_for('schedule') }}">class schedule</a> or <a href="{{ url_for('contact') }}">contact us</a> before arriving if you are unsure about availability.</p>
+    </div>
   </div>
+
   <div class="faq-item">
-    <h3>[Placeholder question, e.g. "Is this suitable for complete beginners?"]</h3>
-    <p>[Placeholder answer]</p>
+    <button class="faq-question" aria-expanded="false">
+      <span>Is this suitable for complete beginners?</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <div class="faq-answer">
+      <p>Absolutely! No previous yoga experience is required. Our classes are designed to welcome beginners and guide you through the fundamentals at a comfortable pace. You don't need to be flexible or know the poses beforehand — our instructors will guide you through the practice and offer modifications when needed.</p>
+      <p>If you have an injury, health condition, or other concerns about exercising, we recommend speaking with your healthcare professional and informing your instructor before class.</p>
+    </div>
   </div>
 </section>
 

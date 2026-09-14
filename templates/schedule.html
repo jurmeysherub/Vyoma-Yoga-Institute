@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Schedule — Vyoma Yoga{% endblock %}
+
+{% block hero_content %}
+{% endblock %}
+
+{% block content %}
+
+<section class="page-title-block">
+  <p class="page-eyebrow">Find your time</p>
+  <h1>Class Schedule</h1>
+  <p class="page-subtitle">A quick look at each class, and when you can join us.</p>
+</section>
+
+<section class="classes" id="classes">
+  <h2>What we teach</h2>
+  <div class="classes-list">
+    <div class="class-item">
+      <h3>Hatha</h3>
+      <p>Slow, grounded postures held with attention. Best for beginners and anyone easing back into practice.</p>
+      <a href="{{ url_for('classes') }}#hatha" class="class-item-link">Learn more →</a>
+    </div>
+    <div class="class-item">
+      <h3>Qi Gong</h3>
+      <p>Breath-linked movement that builds heat and strength. For students comfortable with the basics.</p>
+      <a href="{{ url_for('classes') }}#qi-gong" class="class-item-link">Learn more →</a>
+    </div>
+    <div class="class-item">
+      <h3>Core</h3>
+      <p>Deep, passive stretches that work the connective tissue. Meditative and slow by design.</p>
+      <a href="{{ url_for('classes') }}#core" class="class-item-link">Learn more →</a>
+    </div>
+    <div class="class-item">
+      <h3>Power</h3>
+      <p>[TODO: real description — strength and flow-based, per the schedule note.]</p>
+      <a href="{{ url_for('classes') }}#power" class="class-item-link">Learn more →</a>
+    </div>
+    <div class="class-item">
+      <h3>Kids Yoga</h3>
+      <p>[TODO: playful, age-appropriate movement and breathing for younger students.]</p>
+      <a href="{{ url_for('classes') }}#kids-yoga" class="class-item-link">Learn more →</a>
+    </div>
+    <div class="class-item">
+      <h3>Meditation</h3>
+      <p>[TODO: guided stillness practice for calming the mind.]</p>
+      <a href="{{ url_for('classes') }}#meditation" class="class-item-link">Learn more →</a>
+    </div>
+    <div class="class-item">
+      <h3>Sound Healing</h3>
+      <p>[TODO: relaxation session using sound/vibration — bowls, gongs, etc.]</p>
+      <a href="{{ url_for('classes') }}#sound-healing" class="class-item-link">Learn more →</a>
+    </div>
+    <div class="class-item">
+      <h3>Pranayama (Breathwork)</h3>
+      <p>[TODO: focused breathing techniques for energy and nervous system regulation.]</p>
+      <a href="{{ url_for('classes') }}#pranayama" class="class-item-link">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<section class="schedule" id="schedule">
+  <h2>Class Schedule</h2>
+  <div class="schedule-table-wrap">
+  <table class="schedule-table">
+    <tr>
+      <th>Time</th>
+      {% for day in days %}
+        <th>{{ day }}</th>
+      {% endfor %}
+    </tr>
+    {% for slot in time_slots %}
+      <tr>
+        <td>{{ slot }}</td>
+        {% for day in days %}
+          <td>{{ grid.get(slot, {}).get(day, '') }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+  </div>
+
+  <p class="schedule-note">
+    Hatha Builds The Foundation. Power Builds Strength and Flow.
+    <br>
+    Core Builds Stability. Qi Gong Brings Balance.
+  </p>
+
+  <div class="online-callout" id="online-classes">
+    <h3>Prefer online?</h3>
+    <p>We also offer flexible online group sessions, scheduled
+      around what works for you. Tell us what you're looking for and we'll confirm
+      a time and send you the link to join.</p>
+
+    <form action="{{ url_for('online_request') }}" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+
+      <select name="class_type" required>
+        <option value="" disabled selected>Session type</option>
+        <option value="group">Group Session</option>
+      </select>
+
+      <input type="text" name="preferred_time" placeholder="Preferred day/time (e.g. Tuesday evenings)" required>
+      <textarea name="message" placeholder="Anything else we should know? (optional)" rows="3"></textarea>
+
+      <button type="submit" class="btn-primary">Request a Session</button>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

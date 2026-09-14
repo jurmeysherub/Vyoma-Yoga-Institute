@@ -13,26 +13,21 @@
   <p class="page-subtitle">Bringing authentic yoga into modern living — bridging traditional wisdom with practical, accessible wellness.</p>
 </section>
 
-<!-- ===== VISION ===== -->
-<section class="about" id="about" id="vision">
-  <div class="about-image">
-    <img src="{{ url_for('static', filename='images/placeholder3.jpeg') }}" alt="Vyoma Yoga studio">
-  </div>
-  <div class="about-text">
-    <h2>Our Vision</h2>
-    <p>Vyoma Yoga was founded with a vision to bring authentic yoga into modern living
-      environments, bridging traditional yogic wisdom with practical, accessible wellness.</p>
-    <p>The institute focuses on creating mindful and transformative yoga experiences for
-      individuals, corporates, and luxury hospitality spaces. Our approach combines
-      traditional yogic principles with modern lifestyle needs, helping students develop
-      balance, awareness, and sustainable practice.</p>
-  </div>
+<!-- ===== VISION (text only) ===== -->
+<section class="about-text-block" id="vision">
+  <h2>Our Vision</h2>
+  <p>Vyoma Yoga was founded with a vision to bring authentic yoga into modern living
+    environments, bridging traditional yogic wisdom with practical, accessible wellness.</p>
+  <p>The institute focuses on creating mindful and transformative yoga experiences for
+    individuals, corporates, and luxury hospitality spaces. Our approach combines
+    traditional yogic principles with modern lifestyle needs, helping students develop
+    balance, awareness, and sustainable practice.</p>
 </section>
 
-<!-- ===== JOURNEY ===== -->
+<!-- ===== JOURNEY (keeps its image) ===== -->
 <section class="about about-reverse" id="journey">
   <div class="about-image">
-    <img src="{{ url_for('static', filename='images/placeholder4.jpeg') }}" alt="Vyoma Yoga journey">
+    <img src="{{ url_for('static', filename='images/journey.jpeg') }}" alt="Vyoma Yoga journey">
   </div>
   <div class="about-text">
     <h2>Our Journey</h2>
@@ -45,10 +40,13 @@
   </div>
 </section>
 
-<!-- ===== TEACHING PHILOSOPHY ===== -->
+<!-- ===== TEACHING PHILOSOPHY (4-photo collage) ===== -->
 <section class="about" id="philosophy">
-  <div class="about-image">
-    <img src="{{ url_for('static', filename='images/placeholder7.jpeg') }}" alt="Vyoma Yoga teaching philosophy">
+  <div class="about-collage">
+    <img src="{{ url_for('static', filename='images/philosophy-1.jpeg') }}" alt="Teaching moment at Vyoma Yoga">
+    <img src="{{ url_for('static', filename='images/philosophy-2.jpeg') }}" alt="Teaching moment at Vyoma Yoga">
+    <img src="{{ url_for('static', filename='images/philosophy-3.jpeg') }}" alt="Teaching moment at Vyoma Yoga">
+    <img src="{{ url_for('static', filename='images/philosophy-4.jpeg') }}" alt="Teaching moment at Vyoma Yoga">
   </div>
   <div class="about-text">
     <h2>Teaching Philosophy</h2>
@@ -61,22 +59,17 @@
   </div>
 </section>
 
-<!-- ===== OUR APPROACH ===== -->
-<section class="about about-reverse" id="approach">
-  <div class="about-image">
-    <img src="{{ url_for('static', filename='images/placeholder5.jpeg') }}" alt="Vyoma Yoga approach">
-  </div>
-  <div class="about-text">
-    <h2>Our Approach</h2>
-    <p>My teaching combines traditional and modern yoga in a way that is simple,
-      practical, and easy to apply in daily life. Each session is designed to meet
-      students where they are, whether they are beginners, corporate professionals,
-      or more experienced practitioners.</p>
-    <p>The focus is always on breath, awareness, and mindful movement, creating a
-      balanced practice that supports both body and mind. Classes are structured
-      but flexible, allowing space for individual needs while maintaining clarity
-      and flow.</p>
-  </div>
+<!-- ===== OUR APPROACH (text only) ===== -->
+<section class="about-text-block" id="approach">
+  <h2>Our Approach</h2>
+  <p>My teaching combines traditional and modern yoga in a way that is simple,
+    practical, and easy to apply in daily life. Each session is designed to meet
+    students where they are, whether they are beginners, corporate professionals,
+    or more experienced practitioners.</p>
+  <p>The focus is always on breath, awareness, and mindful movement, creating a
+    balanced practice that supports both body and mind. Classes are structured
+    but flexible, allowing space for individual needs while maintaining clarity
+    and flow.</p>
 </section>
 
 <!-- ===== OWNERS / TEAM ===== -->
@@ -85,7 +78,7 @@
     <h2>Meet your instructors</h2>
     <div class="owners-grid">
       <div class="owner-card">
-        <img src="{{ url_for('static', filename='images/owner1.jpeg') }}" alt="Photo of Sonam Nidup">
+        <img src="{{ url_for('static', filename='images/pfp1.jpeg') }}" alt="Photo of Sonam Nidup">
         <h3>Sonam Nidup</h3>
         <p class="owner-role">Founder &amp; Lead Instructor</p>
         <p>A certified yoga teacher with international training and teaching experience
@@ -102,12 +95,14 @@
           group sessions.</p>
       </div>
       <div class="owner-card">
-        <img src="{{ url_for('static', filename='images/owner2.jpeg') }}" alt="Photo of Pema Dechen">
+        <img src="{{ url_for('static', filename='images/pfp2.jpeg') }}" alt="Photo of Pema Dechen">
         <h3>Pema Dechen</h3>
         <p class="owner-role">Co-Founder &amp; Instructor</p>
-        <p>[Still needed: a bio for Pema, matching the personal, specific tone of
-          Sonam's above — background, what drew her to yoga, and what she hopes
-          students take from a class.]</p>
+        <p>With more than 15 years of international experience in the wellness and spa industry, Pema Dechen brings a deep understanding of holistic wellbeing, mindful movement, and therapeutic practices to Vyoma.
+        Her journey across diverse wellness environments has shaped an intuitive and personalised approach to working with the body, breath, and mind. She is particularly experienced in Qigong and Sound Healing, 
+        practices that invite stillness, balance, and a deeper connection within.Through gentle movement, conscious breathing, meditation, and the vibrational quality of sound, Pema creates experiences designed 
+        to nourish both body and mind — offering a moment to pause, restore, and reconnect. At Vyoma, her intention is simple: to create a serene space where wellness becomes more than a practice, but a way of coming home to oneself.
+        </p>
       </div>
     </div>
   </div>

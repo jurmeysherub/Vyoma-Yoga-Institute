@@ -1,55 +1,134 @@
 {% extends "base.html" %}
 
-{% block title %}200hr Yoga Teacher Training — Vyoma Yoga{% endblock %}
-
-
+{% block title %}Yoga Teacher Training — Vyoma Yoga{% endblock %}
 
 {% block content %}
 
 <section class="page-title-block">
   <p class="page-eyebrow">Deepen your practice</p>
-  <h1>200hr Yoga Teacher Training</h1>
-  <p class="page-subtitle">Become a certified instructor, guided by Vyoma's own teachers.</p>
+  <h1>Yoga Teacher Training</h1>
+  <p class="page-subtitle">Become a yoga teacher without leaving Bhutan — guided by Vyoma's own instructors.</p>
 </section>
 
 <section class="ttc-overview">
   <h2>About the Program</h2>
-  <p>[Placeholder: A few sentences on what makes this training unique — the
-    philosophy, teaching style, and who this program is designed for.]</p>
+  <p>Vyoma's Teacher Training is built around small-group, hands-on learning rather than large lecture-style classes — you'll be practicing and teaching alongside a handful of fellow students, not sitting in a crowd.</p>
+  <p>The approach stays practical throughout: less time memorizing theory, more time actually teaching, receiving feedback, and refining your voice as an instructor. Whether you're aiming to teach professionally or simply want to understand your own practice at a deeper level, the training meets you at whichever tier fits your goals and schedule.</p>
 </section>
 
-<section class="ttc-details">
-  <h2>Program Details</h2>
+<!-- ===== TRAINING TIERS ===== -->
+<section class="ttc-tiers" id="tiers">
+  <h2>Choose Your Training</h2>
+  <div class="tiers-grid">
+    <div class="tier-card">
+      <div class="tier-icon"><i class="fa-solid fa-seedling"></i></div>
+      <h3>50-Hour TTC</h3>
+      <p class="tier-price">Nu. 12,000</p>
+      <p class="tier-tagline">A first step into teaching, or a deeper personal practice.</p>
+      <ul class="tier-features">
+        <li>After Office schedule</li>
+        <li>Daily Option schedule</li>
+      </ul>
+      <a href="{{ url_for('contact') }}" class="btn-primary tier-btn">Reserve Your Spot</a>
+    </div>
+    <div class="tier-card tier-card-featured">
+      <span class="tier-badge">Most Popular</span>
+      <div class="tier-icon"><i class="fa-solid fa-spa"></i></div>
+      <h3>100-Hour TTC</h3>
+      <p class="tier-price">Nu. 25,000</p>
+      <p class="tier-tagline">Balanced depth without a full daily-intensive commitment.</p>
+      <ul class="tier-features">
+        <li>After Office schedule</li>
+        <li>Daily Option schedule</li>
+      </ul>
+      <a href="{{ url_for('contact') }}" class="btn-primary tier-btn">Reserve Your Spot</a>
+    </div>
+    <div class="tier-card">
+      <div class="tier-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+      <h3>200-Hour TTC</h3>
+      <p class="tier-price">Nu. 48,000</p>
+      <p class="tier-tagline">Full certification depth, for those ready to teach.</p>
+      <ul class="tier-features">
+        <li>Daily Intensive only</li>
+      </ul>
+      <a href="{{ url_for('contact') }}" class="btn-primary tier-btn">Reserve Your Spot</a>
+    </div>
+  </div>
+
+  <div class="ttc-highlights">
+    <div class="ttc-highlight-item">
+      <i class="fa-solid fa-people-group"></i>
+      <span>Small group training</span>
+    </div>
+    <div class="ttc-highlight-item">
+      <i class="fa-solid fa-leaf"></i>
+      <span>Practical, authentic teaching</span>
+    </div>
+    <div class="ttc-highlight-item">
+      <i class="fa-solid fa-award"></i>
+      <span>Vyoma completion certificate included</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCHEDULE OPTIONS ===== -->
+<section class="ttc-schedule">
+  <h2>Schedule Options</h2>
   <div class="ttc-grid">
     <div class="ttc-item">
-      <h3>Duration</h3>
-      <p>[Placeholder: e.g. 4 weeks, full-time]</p>
+      <h3>After Office</h3>
+      <p>6:00 PM – 8:00 PM (weekdays)<br>Sat/Sun: 9:00 AM – 5:00 PM</p>
     </div>
     <div class="ttc-item">
-      <h3>Certification</h3>
-      <p>[Placeholder: e.g. Yoga Alliance 200hr RYT]</p>
-    </div>
-    <div class="ttc-item">
-      <h3>Cost</h3>
-      <p>[Placeholder: fee amount]</p>
-    </div>
-    <div class="ttc-item">
-      <h3>Prerequisites</h3>
-      <p>[Placeholder: e.g. minimum 6 months personal practice]</p>
+      <h3>Daily Option</h3>
+      <p>8:00 AM – 5:00 PM<br>Sat/Sun: 9:00 AM – 5:00 PM</p>
     </div>
   </div>
 </section>
 
 <section class="ttc-curriculum">
   <h2>Curriculum</h2>
-  <p>[Placeholder: list out modules — e.g. Asana, Anatomy, Philosophy,
-    Teaching Methodology, Practicum]</p>
+  <p class="curriculum-intro">Every tier builds on the same core foundation — the longer programs simply go deeper into each area and add supervised teaching practice.</p>
+
+  <div class="curriculum-grid">
+    <div class="curriculum-item">
+      <div class="curriculum-number">01</div>
+      <h3>Asana &amp; Alignment</h3>
+      <p>The physical postures — proper form, common modifications, and how to guide a body safely into and out of each pose.</p>
+    </div>
+    <div class="curriculum-item">
+      <div class="curriculum-number">02</div>
+      <h3>Anatomy &amp; Physiology</h3>
+      <p>The basics of how the body moves, so you understand why alignment matters and how to prevent injury. <span class="tier-note">(100hr &amp; 200hr)</span></p>
+    </div>
+    <div class="curriculum-item">
+      <div class="curriculum-number">03</div>
+      <h3>Yoga Philosophy</h3>
+      <p>The history and ethical foundations behind the practice — where the physical postures fit into a much older tradition.</p>
+    </div>
+    <div class="curriculum-item">
+      <div class="curriculum-number">04</div>
+      <h3>Teaching Methodology</h3>
+      <p>How to sequence a class, cue clearly, and adapt on the fly for different bodies and skill levels in the room. <span class="tier-note">(100hr &amp; 200hr)</span></p>
+    </div>
+    <div class="curriculum-item">
+      <div class="curriculum-number">05</div>
+      <h3>Practicum</h3>
+      <p>Supervised practice teaching in front of your fellow trainees, with real feedback before you ever lead a public class. <span class="tier-note">(200hr)</span></p>
+    </div>
+  </div>
 </section>
 
 <section class="ttc-apply" id="apply">
   <h2>Apply</h2>
-  <p>Interested in joining the next cohort? Reach out and we'll send you the full syllabus and application details.</p>
-  <a href="{{ url_for('home') }}#contact" class="btn-primary">Get in Touch</a>
+  <p>Seats are limited and the next batch is opening soon. Reach out and we'll send you the full details.</p>
+  <a href="{{ url_for('contact') }}" class="btn-primary">Get in Touch</a>
+
+  <div class="ttc-contact-details">
+    <p><i class="fa-solid fa-envelope"></i> sonam@vyomayogainstitute.com</p>
+    <p><i class="fa-solid fa-phone"></i> +975 17 401 475</p>
+    <p><i class="fa-solid fa-location-dot"></i> Kashing Lam, Thimphu</p>
+  </div>
 </section>
 
 {% endblock %}
