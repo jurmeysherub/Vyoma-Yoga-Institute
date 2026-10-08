@@ -8,13 +8,12 @@
 {% block content %}
 
 <section class="page-title-block">
-  <p class="page-eyebrow">Come Visit Us</p>
+  <!-- <p class="page-eyebrow">Come Visit Us</p> -->
   <h1>Contact &amp; Find Us At</h1>
-  <p class="page-subtitle">Send a message, chat on WhatsApp, or come see the space for yourself.</p>
 </section>
 
 <section class="contact" id="contact">
-  <h2>Send a message</h2>
+  <h1 class="section-heading-lg">Send a message</h1>
   <p>We'll get back to you within a day.</p>
   <form id="contactForm" class="contact-form" action="{{ url_for('contact') }}" method="POST">
     <input type="text" name="name" placeholder="Your name" required>
@@ -30,33 +29,35 @@
 
 <!-- ===== OUR SPACE (photos + video, own section) ===== -->
 <section class="location" id="location">
-  <h2>Our space</h2>
+  <h1 class="section-heading-lg">Our space</h1>
+  <!-- <h2 class="section-heading-lg">Our space</h2> -->
   <p class="location-intro">Tucked into the Thimphu valley, our studio is a quiet
-    workspace built for practice — natural light, warm floors, and a view worth
+    workspace built for practice natural light, warm floors, and a view worth
     breathing for.</p>
 
   <div class="location-gallery">
-  <img src="{{ url_for('static', filename='images/office2.jpeg') }}" alt="Vyoma Yoga studio exterior" class="gallery-tile gallery-hero">
-  <div class="gallery-side">
-    <img src="{{ url_for('static', filename='images/office1.jpeg') }}" alt="Vyoma Yoga studio entrance" class="gallery-tile">
-    <div class="gallery-tile gallery-video-thumb" id="videoThumb">
-      <img src="{{ url_for('static', filename='images/office1.jpeg') }}" alt="Play a video tour of the studio">
-      <div class="play-icon"><i class="fa-solid fa-play"></i></div>
+    <img src="{{ url_for('static', filename='images/office2.jpeg') }}" alt="Vyoma Yoga studio exterior" class="gallery-tile gallery-hero">
+    <div class="gallery-side">
+      <img src="{{ url_for('static', filename='images/office1.jpeg') }}" alt="Vyoma Yoga studio entrance" class="gallery-tile">
+      <div class="gallery-tile gallery-video-thumb" id="videoThumb">
+        <img src="{{ url_for('static', filename='images/office1.jpeg') }}" alt="Play a video tour of the studio">
+        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="video-modal" id="videoModal">
-  <div class="video-modal-close" id="videoModalClose">&times;</div>
-  <video id="modalVideo" controls playsinline poster="{{ url_for('static', filename='images/office1.jpeg') }}">
-    <source src="{{ url_for('static', filename='images/office.mp4') }}" type="video/mp4">
-  </video>
-</div>
+  <div class="video-modal" id="videoModal">
+    <div class="video-modal-close" id="videoModalClose">&times;</div>
+    <video id="modalVideo" controls playsinline poster="{{ url_for('static', filename='images/office1.jpeg') }}">
+      <source src="{{ url_for('static', filename='images/office.mp4') }}" type="video/mp4">
+    </video>
+  </div>
 </section>
 
 <!-- ===== FIND US (map, own separate section) ===== -->
 <section class="find-us" id="find-us">
-  <h3 class="location-subtitle">Find us here</h3>
+  <h1 class="section-heading-lg">Find us here</h1>
+  <!-- <h1 class="section-heading-lg location-subtitle">Find us here</h1> -->
   <div class="map-embed">
     <iframe
       src="https://www.google.com/maps?q=Vyoma+Yoga,27.4776045,89.6368837&output=embed"

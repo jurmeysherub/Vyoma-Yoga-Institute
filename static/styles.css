@@ -42,6 +42,27 @@ section {
   padding: 5rem 1.5rem;
 }
 
+.section-heading-lg {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 1rem;
+}
+
+
+.page-title-block + section {
+  padding-top: 0;
+}
+
+.contact + .location {
+  padding-top: 0;
+}
+
+.location + .find-us {
+  padding-top: 0;
+}
+
+
 /* ===========================================
    NAV
 =========================================== */
@@ -90,7 +111,7 @@ section {
   color: #fff;
   background-image:
     linear-gradient(180deg, rgba(20,20,15,0.55) 0%, rgba(20,20,15,0.35) 45%, rgba(20,20,15,0.65) 100%),
-    url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop');
+    url('images/P1.jpeg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -1168,7 +1189,7 @@ section {
   color: #fff;
   background-image:
     linear-gradient(180deg, rgba(20,20,15,0.5) 0%, rgba(20,20,15,0.75) 100%),
-    url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600&auto=format&fit=crop');
+    url('images/P6.jpeg');
   background-size: cover;
   background-position: center 30%;
   margin-bottom: -2px; /* removes any sub-pixel gap before the footer */
@@ -1359,28 +1380,28 @@ section {
 .hero-banner-classes {
   background-image:
     linear-gradient(180deg, rgba(20,20,15,0.45) 0%, rgba(20,20,15,0.3) 40%, rgba(20,20,15,0.7) 100%),
-    url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600&auto=format&fit=crop');
+    url('images/P2.jpeg');
   background-position: center 40%;
 }
 
 .hero-banner-pricing {
   background-image:
     linear-gradient(180deg, rgba(20,20,15,0.45) 0%, rgba(20,20,15,0.3) 40%, rgba(20,20,15,0.7) 100%),
-    url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600&auto=format&fit=crop');
+    url('images/P4.jpeg');
   background-position: center 60%;
 }
 
 .hero-banner-about {
   background-image:
     linear-gradient(180deg, rgba(20,20,15,0.45) 0%, rgba(20,20,15,0.3) 40%, rgba(20,20,15,0.7) 100%),
-    url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600&auto=format&fit=crop');
+    url('images/P3.jpeg');
   background-position: center 20%;
 }
 
 .hero-banner-contact {
   background-image:
     linear-gradient(180deg, rgba(20,20,15,0.45) 0%, rgba(20,20,15,0.3) 40%, rgba(20,20,15,0.7) 100%),
-    url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600&auto=format&fit=crop');
+    url('images/P1.jpeg');
   background-position: center 50%;
 }
 
@@ -1399,7 +1420,7 @@ section {
 .hero-banner-schedule {
   background-image:
     linear-gradient(180deg, rgba(20,20,15,0.45) 0%, rgba(20,20,15,0.3) 40%, rgba(20,20,15,0.7) 100%),
-    url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600&auto=format&fit=crop');
+    url('images/P5.jpeg');
   background-position: center 40%;
 }
 
