@@ -318,6 +318,24 @@ def online_request():
     db.session.commit()
     return redirect(url_for('schedule'))
 
+from flask import Response
+
+SITE_URL = "https://vyomayogainstitute.com"  # use your real live address
+
+@app.route('/robots.txt')
+def robots():
+    return Response(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n",
+                    mimetype='text/plain')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    pages = ['home', 'classes', 'schedule', 'pricing', 'about',
+             'contact', 'ttc', 'events', 'blog', 'faq', 'feedback']
+    urls = ''.join(f"<url><loc>{SITE_URL}{url_for(p)}</loc></url>" for p in pages)
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>'
+           f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>')
+    return Response(xml, mimetype='application/xml')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

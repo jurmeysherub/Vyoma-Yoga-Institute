@@ -4,11 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- ===== TARGET LOCAL SEO META TAGS ===== -->
-  <meta name="description" content="Discover professional yoga classes, mindfulness meditation sessions, Qi Gong, and wellness workshops at Vyoma Yoga Institute in Thimphu, Bhutan. Built for strength, stability, and inner balance.">
-  <meta name="keywords" content="yoga in bhutan, bhutan yoga, yoga thimphu, vyoma yoga, meditation bhutan, yoga classes thimphu, mindfulness bhutan, yoga institute bhutan">
-  
-  <title>{% block title %}Vyoma Yoga Institute | Best Yoga Classes in Thimphu, Bhutan{% endblock %}</title>
+<meta name="description" content="{% block meta_description %}Yoga classes, meditation, Qi Gong and teacher training at Vyoma Yoga Institute in Thimphu, Bhutan.{% endblock %}">
+<link rel="canonical" href="https://vyomayogainstitute.com{{ request.path }}">
+<meta property="og:title" content="Vyoma Yoga Institute, Thimphu, Bhutan">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vyomayogainstitute.com{{ request.path }}">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  "name": "Vyoma Yoga Institute",
+  "url": "https://vyomayogainstitute.com",
+  "telephone": "+97517401475",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Kashing Lam",
+    "addressLocality": "Thimphu",
+    "addressCountry": "BT"
+  },
+  "geo": {"@type": "GeoCoordinates", "latitude": 27.4776045, "longitude": 89.6368837},
+  "sameAs": [
+    "https://www.instagram.com/yoga_vyoma",
+    "https://www.tiktok.com/@vyoma_yoga"
+  ]
+}
+</script>
+
+  <title>{% block title %}Yoga Classes in Thimphu, Bhutan | Vyoma Yoga Institute{% endblock %}</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -106,7 +129,6 @@
         <a href="{{ url_for('pricing') }}">Pricing</a>
         <a href="{{ url_for('about') }}">About</a>
         <a href="{{ url_for('contact') }}">Contact</a>
-        <a href="{{ url_for('feedback') }}">Feedback</a>
       </div>
 
       <div class="footer-col">
