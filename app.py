@@ -28,7 +28,7 @@ def send_notification_email(subject, body):
     msg['To'] = RECEIVER_EMAIL
 
     try:
-        with smtplib.SMTP('://gmail.com', 587) as server:
+        with smtplib.SMTP('smtp.gmail.com', 587) as server:
             server.starttls()
             server.login(SENDER_EMAIL, SENDER_APP_PASSWORD)
             server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, msg.as_string())
@@ -36,10 +36,10 @@ def send_notification_email(subject, body):
         print(f"Failed to send notification email: {e}")
 
         
-SCHEDULE_CSV_URL = "https://google.com"
-PRICING_CSV_URL = "https://google.com"
-EVENTS_CSV_URL = "https://google.com"
-BLOG_CSV_URL = "https://google.com"
+SCHEDULE_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRCr9sjgkC1JT5NqeVodceumml4g9Zr9zfQrHfnqVvW-4DIwlKcDFW18wzaWWc30iFDNKlyPv9XGERA/pub?gid=0&single=true&output=csv"
+PRICING_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRCr9sjgkC1JT5NqeVodceumml4g9Zr9zfQrHfnqVvW-4DIwlKcDFW18wzaWWc30iFDNKlyPv9XGERA/pub?gid=493372854&single=true&output=csv"
+EVENTS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRCr9sjgkC1JT5NqeVodceumml4g9Zr9zfQrHfnqVvW-4DIwlKcDFW18wzaWWc30iFDNKlyPv9XGERA/pub?gid=1413253241&single=true&output=csv"
+BLOG_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRCr9sjgkC1JT5NqeVodceumml4g9Zr9zfQrHfnqVvW-4DIwlKcDFW18wzaWWc30iFDNKlyPv9XGERA/pub?gid=1722890409&single=true&output=csv"
 
 
 def fetch_csv_rows(url):
@@ -237,6 +237,7 @@ def contact():
     return render_template('contact.html', hero_class='hero-banner-short hero-banner-contact')
 
 
+
 # ===== FEEDBACK =====
 @app.route('/feedback', methods=['GET', 'POST'])
 def feedback():
@@ -313,7 +314,13 @@ def online_request():
     return redirect(url_for('schedule'))
 
 
+    db.session.add(new_request)
+    db.session.commit()
+    return redirect(url_for('schedule'))
 
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 
